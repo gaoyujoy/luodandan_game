@@ -1,5 +1,5 @@
 ; (() => {
-    var ws = new WebSocket('ws://localhost:3000/ws/chat');
+    var ws = new WebSocket('ws://lddgame.herokuapp.com//ws/chat');
     ws.onmessage = function (event) {
         var data = event.data;
         var msg = JSON.parse(data);
