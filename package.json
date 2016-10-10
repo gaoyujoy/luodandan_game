@@ -1,0 +1,40 @@
+{
+  "name": "luodandan_game",
+  "version": "1.0.0",
+  "repository": "",
+  "description": "ni hua wo cai",
+  "main": "start.js",
+  "scripts": {
+    "webpack_run": "webpack ./public/babel_resource/index.js ./public/resources/index.js",
+    "babel_run": "babel ./public/self_js -d ./public/babel_resource",
+    "start": "npm run babel_run && npm run webpack_run && rm -r ./public/babel_resource && node start.js"
+  },
+  "keywords": [
+    "koa",
+    "async"
+  ],
+  "author": "Seven",
+  "dependencies": {
+    "cookies": "^0.6.1",
+    "koa": "2.0.0",
+    "koa-bodyparser": "^2.2.0",
+    "koa-convert": "^1.2.0",
+    "koa-json": "^1.1.3",
+    "koa-router": "^5.4.0",
+    "koa-static": "^2.0.0",
+    "koa-views": "^5.1.2",
+    "nunjucks": "^2.5.2",
+    "swig": "^1.4.2",
+    "url": "^0.11.0",
+    "webpack": "^1.13.2",
+    "ws": "^1.1.1"
+  },
+  "devDependencies": {
+    "babel-core": "6.13.2",
+    "babel-polyfill": "6.13.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-stage-2": "^6.13.0",
+    "babel-preset-stage-3": "^6.17.0"
+  }
+}
