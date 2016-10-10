@@ -81,7 +81,7 @@ function createWebSocketServer(server, onConnection, onMessage, onClose, onError
     return wss;
 }
 
-let server = app.listen(3000);
+let server = app.listen(process.env.PORT);
 
 app.wss = createWebSocketServer(server, null, null, null);
-console.log('app started at port 3000...');
+console.log('app started at port '+process.env.PORT+'...');
