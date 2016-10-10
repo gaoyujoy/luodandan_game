@@ -7,7 +7,7 @@
         if (msg.type == 'msg') {
             console.log(msg.msg);
         } else {
-            // if (!canvas.begin) { 
+            if (!canvas.begin) { 
                 if (msg.isbegin) {
                     canvas.ctx.moveTo(msg.x, msg.y);
                 } else { 
@@ -15,7 +15,7 @@
                     canvas.ctx.stroke();
                     canvas.ctx.moveTo(msg.x, msg.y);
                 }
-            // }
+            }
         }
 
     };
@@ -58,6 +58,8 @@
                 _.ctx.lineTo(point.x, point.y);
                 _.ctx.stroke();
                 _.ctx.moveTo(point.x, point.y);
+            }).on('touchend', (e) => { 
+                _.begin = false;
             })
         }
     };
