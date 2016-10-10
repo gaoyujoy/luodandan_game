@@ -1,6 +1,6 @@
 ; (() => {
-    var ws = new WebSocket('wss://lddgame.herokuapp.com/ws/chat');
-    // var ws = new WebSocket('ws://localhost:3000/ws/chat');
+    // var ws = new WebSocket('wss://lddgame.herokuapp.com/ws/chat');
+    var ws = new WebSocket('ws://localhost:3000/ws/chat');
     ws.onmessage = function (event) {
         var data = event.data;
         var msg = JSON.parse(data);
@@ -59,7 +59,7 @@
                 _.ctx.stroke();
                 _.ctx.moveTo(point.x, point.y);
             }).on('touchend', (e) => { 
-                _.begin = false;
+                // _.begin = false;
             })
         }
     };
