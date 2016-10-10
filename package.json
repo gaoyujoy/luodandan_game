@@ -5,8 +5,8 @@
   "description": "ni hua wo cai",
   "main": "start.js",
   "scripts": {
-    "webpack_run": "webpack ./public/babel_resource/index.js ./public/resources/index.js",
-    "babel_run": "babel ./public/self_js -d ./public/babel_resource",
+    "webpack_run": "./node_modules/.bin/webpack ./public/babel_resource/index.js ./public/resources/index.js",
+    "babel_run": "./node_modules/.bin/babel ./public/self_js -d ./public/babel_resource",
     "start": "npm run babel_run && npm run webpack_run && rm -r ./public/babel_resource && node start.js"
   },
   "keywords": [
