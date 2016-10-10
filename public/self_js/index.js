@@ -1,5 +1,6 @@
 ; (() => {
     var ws = new WebSocket('wss://lddgame.herokuapp.com/ws/chat');
+    // var ws = new WebSocket('ws://localhost:3000/ws/chat');
     ws.onmessage = function (event) {
         var data = event.data;
         var msg = JSON.parse(data);
@@ -44,11 +45,10 @@
                     isbegin: true
                 };
                 _.ctx.moveTo(point.x, point.y);
-                _.begin = true;
                 ws.send(JSON.stringify(point));
             }).on('touchmove', (e) => {
                 e.preventDefault();
-                
+                _.begin = true;
                 var point = {
                     x: e.originalEvent.changedTouches[0].clientX,
                     y: e.originalEvent.changedTouches[0].clientY,

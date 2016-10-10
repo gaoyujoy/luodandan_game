@@ -47,7 +47,8 @@
 	'use strict';
 
 	;(function () {
-	    var ws = new WebSocket('wss://localhost:3000/ws/chat');
+	    // var ws = new WebSocket('wss://lddgame.herokuapp.com/ws/chat');
+	    var ws = new WebSocket('ws://localhost:3000/ws/chat');
 	    ws.onmessage = function (event) {
 	        var data = event.data;
 	        var msg = JSON.parse(data);
@@ -91,11 +92,10 @@
 	                    isbegin: true
 	                };
 	                _.ctx.moveTo(point.x, point.y);
-	                _.begin = true;
 	                ws.send(JSON.stringify(point));
 	            }).on('touchmove', function (e) {
 	                e.preventDefault();
-
+	                _.begin = true;
 	                var point = {
 	                    x: e.originalEvent.changedTouches[0].clientX,
 	                    y: e.originalEvent.changedTouches[0].clientY,
@@ -105,6 +105,8 @@
 	                _.ctx.lineTo(point.x, point.y);
 	                _.ctx.stroke();
 	                _.ctx.moveTo(point.x, point.y);
+	            }).on('touchend', function (e) {
+	                _.begin = false;
 	            });
 	        }
 	    };
