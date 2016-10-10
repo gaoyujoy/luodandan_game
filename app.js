@@ -64,9 +64,10 @@ function createWebSocketServer(server, onConnection, onMessage, onClose, onError
         ws.on('message', onMessage);
         ws.on('close', onClose);
         ws.on('error', onError);
+        console.log(location.pathname);
         if (location.pathname !== '/ws/chat') {
             // close ws:
-            ws.close(4000, 'Invalid URL');
+            ws.close(400002, 'Invalid URL');
         }
         // check user:
         // let user = parseUser(ws.upgradeReq);
@@ -81,7 +82,7 @@ function createWebSocketServer(server, onConnection, onMessage, onClose, onError
     return wss;
 }
 
-let server = app.listen(process.env.PORT);
+let server = app.listen(process.env.PORT||3000);
 
 app.wss = createWebSocketServer(server, null, null, null);
 console.log('app started at port '+process.env.PORT+'...');

@@ -1,5 +1,5 @@
 ; (() => {
-    var ws = new WebSocket('wss://lddgame.herokuapp.com//ws/chat');
+    var ws = new WebSocket('wss://lddgame.herokuapp.com/ws/chat');
     ws.onmessage = function (event) {
         var data = event.data;
         var msg = JSON.parse(data);
@@ -20,6 +20,7 @@
 
     };
     ws.onclose = function (evt) {
+        console.log(evt);
         console.log('[closed] ' + evt.code);
     };
     ws.onerror = function (code, msg) {
